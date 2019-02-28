@@ -1,0 +1,20 @@
+.btnSpace{
+	margin-bottom:15px!important;
+}
+
+#notificationBox a{
+	text-decoration: none;
+}
+#alert a{
+	text-decoration: none;
+}
+.ui-navbar [class^="ui-block"] {
+	width: 100% !important;
+}
+.ui-navbar [class^="ui-block"] a {
+	text-align: left;
+	border: 5px double #1c1c1c;
+}
+
+
+

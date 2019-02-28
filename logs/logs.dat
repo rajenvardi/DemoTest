@@ -1,0 +1,18 @@
+Posting city logs data to database: 
+{"city":"Perth","time":"25/5/2018 12:47:11","location":"-33.871534 , 151.20475729999998","contact":"rajan","invoice":"1312","destination":"Sydney"}
+
+Getting city logs for Perth
+[{"_id":"5b07793ff353d328fc55e7e6","city":"Perth","time":"25/5/2018 12:47:11","location":"-33.871534 , 151.20475729999998","contact":"rajan","invoice":"1312","destination":"Sydney"}]
+
+Posting city logs data to database: 
+{"city":"Perth","time":"25/5/2018 12:55:34","location":"-33.871534 , 151.20475729999998","contact":"vardi","invoice":"6583469","destination":"Melbourne"}
+
+Getting city logs for Perth
+[{"_id":"5b07793ff353d328fc55e7e6","city":"Perth","time":"25/5/2018 12:47:11","location":"-33.871534 , 151.20475729999998","contact":"rajan","invoice":"1312","destination":"Sydney"},{"_id":"5b077b3ff353d328fc55e7e7","city":"Perth","time":"25/5/2018 12:55:34","location":"-33.871534 , 151.20475729999998","contact":"vardi","invoice":"6583469","destination":"Melbourne"}]
+
+Posting city logs data to database: 
+{"city":"Adelaide","time":"25/5/2018 14:29:37","location":"-33.8715251 , 151.20489129999999","contact":"123456","invoice":"987654321","destination":"Melbourne"}
+
+Getting city logs for Adelaide
+[{"_id":"5b07914f00c90c0f28608dc8","city":"Adelaide","time":"25/5/2018 14:29:37","location":"-33.8715251 , 151.20489129999999","contact":"123456","invoice":"987654321","destination":"Melbourne"}]
+

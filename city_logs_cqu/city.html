@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+   <!--Including js and css files in the header -->
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="jquery.js"></script>
+      <script src="jquery.mobile.js"></script>
+      <script type="text/javascript" src="city.js"></script>
+      <link rel="stylesheet" href="jquery.mobile.css">
+      <link rel="stylesheet" href="city.css">
+   </head>
+   <body>
+      <!-- Includes main body of the page -->
+      <div data-role="page" id="homePage">
+         <div data-role="header">
+            <h2>City Logs</h2>
+            <!-- Title of the page -->
+         </div>
+         <div role="main" class="ui-content">
+            <div data-role="navbar">
+               <ul>
+                  <li><a href="#inputForm"  data-inline="true"  onclick="selectCity('Perth')" class="btnSpace ui-btn ui-btn-icon-right ui-icon-carat-r ">Perth</a>
+                  </li>
+                  <li><a href="#inputForm"  data-inline="true" onclick="selectCity('Brisbane')" class="btnSpace ui-btn ui-btn-icon-right ui-icon-carat-r">Brisbane</a>
+                  </li>
+                  <li><a href="#inputForm"  data-inline="true" onclick="selectCity('Sydney')" class="btnSpace ui-btn ui-btn-icon-right ui-icon-carat-r">Sydney</a>
+                  </li>
+                  <li><a href="#inputForm"  data-inline="true" onclick="selectCity('Melbourne')" class="btnSpace ui-btn ui-btn-icon-right ui-icon-carat-r">Melbourne</a>
+                  </li>
+                  <li><a href="#inputForm"  data-inline="true" onclick="selectCity('Adelaide')" class="btnSpace ui-btn ui-btn-icon-right ui-icon-carat-r">Adelaide</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <!-- Footer of page  -->
+         <div data-role="footer">
+            <h3>CQUniversity, Rajendra, 2018</h3>
+         </div>
+      </div>
+      <!-- Header of page having clear and show logs -->
+      <div data-role="page" id="inputForm">
+         <div data-role="header">
+            <a onClick="reset()" class="ui-btn ui-btn-left ui-corner-all">Clear</a>
+            <h1 id="cityName">City</h1>
+            <a href="#cityDataDisplay" class="ui-btn ui-btn-right ui-corner-all" id="showLogs">Show Logs</a>
+         </div>
+         <div role="main" class="ui-content">
+            <form id="packageForm">
+               <button id="time">Time</button>
+               <label for="contact">Contact:</label><input name="contact" id="contact" placeholder="Your contact details"/>
+               <label for="invoice">Invoice No #:</label> <input name="invoiceNumber" id="invoice" placeholder="012345678"/>
+               <label for="destination">Destination:</label>
+               <select name="destination" id="destination">
+                  <option value=""></option>
+                  <option value="Perth">Perth</option>
+                  <option value="Brisbane">Brisbane</option>
+                  <option value="Sydney">Sydney</option>
+                  <option value="Melbourne">Melbourne</option>
+                  <option value="Adelaide">Adelaide</option>
+               </select>
+            </form>
+            <a href="#notificationBox" data-rel="dialog" data-role="button" data-inline="true" class="ui-btn" id="btnSaveLog">Save log entry</a>
+         </div>
+         <!-- footer of page having next, previous and home option -->
+         <div data-role="footer">
+            <div>
+               <div class="ui-block-a"><a  onclick="nextCity()" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-arrow-r">Next</a></div>
+               <div class="ui-block-b"><a  onclick="previousCity()" class="ui-btn  ui-corner-all  ui-btn-icon-left ui-icon-arrow-l">Previous</a></div>
+               <div class="ui-block-c"><a href="#homePage" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-home">Home</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Header of page get logs and send option -->
+      <div data-role="page" id="cityDataDisplay">
+         <div data-role="header">
+            <a href="#cloudview" class="ui-btn ui-btn-left ui-corner-all" id="getlogs">Get Logs</a>
+            <a href="#sendCityLogs" id="sendLogsPage_btn" class="ui-btn ui-btn-right ui-btn-icon-left ui-corner-all">Send</a>
+            <h1 id="logtopSection">Log Entries</h1>
+         </div>
+         <!-- Title of the log entries page -->
+         <div role="main" class="ui-content">
+            <h2>Current log entries:</h2>
+            <div id="cityDisplay"></div>
+         </div>
+         <!-- footer of page havingback option-->
+         <div data-role="footer">
+            <div class="ui-block-a">
+               <a href="#inputForm" class="ui-btn ui-btn-left ui-corner-all  ">Back</a>
+            </div>
+         </div>
+      </div>
+      <div data-role="page" id="cloudview">
+         <div data-role="header">
+            <a href="#city" class="ui-btn ui-btn-left ui-corner-all ui-shadow " >Back</a>
+            <a href="#page1" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-home">Home</a>
+            <h1 id="cloudcitylogs">Cloud City Log Entries</h1>
+         </div>
+		 <!-- page WITH CLOUD ENTRIES -->
+         <div role="main" class="ui-content" >
+            <h3>Cloud City Log Entries :</h3>
+            <div id="cloud_city_logs"></div>
+         </div>
+         <div data-role="footer">
+            <div class="ui-block-a">
+               <a href="#inputForm" class="ui-btn ui-btn-left ui-corner-all  ">Back</a>
+            </div>
+         </div>
+      </div>
+	  <!-- Notification box-->
+      <div data-role="page" id="notificationBox" data-theme="b">
+         <div role="main" data-role="content"  class="ui-content"  data-theme="b">
+            <h2>Alert</h2>
+            <p id ="notificationMsg"></p>
+            <div align="right">
+               <a href="#"  id="notificationId"  data-theme="b">OK</a>
+            </div>
+         </div>
+      </div>
+      <div data-role="page" data-dialog="true" id="sendLogsAlert">
+         <div data-role="header">
+            <h2>Send Logs?</h2>
+         </div>
+         <div role="main" class="ui-content">
+            <h4>Do you want send all the logs, this has the effect of deleting all logs?</h4>
+         </div>
+		 <!-- footer owith cancel and yes option-->
+         <div data-role="footer">
+            <a href="#cityDataDisplay" class="ui-btn ui-corner-all ui-shadow ">Cancel</a>
+            <a href="#notificationBox" data-rel="dialog"  class="ui-btn ui-corner-all ui-shadow" id="btnSendLogs">Yes</a>
+         </div>
+      </div>
+   </body>
+</html>
